@@ -14,15 +14,19 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --green-900:#0C2A20;
-  --green-800:#123A2C;
-  --green-600:#1E5240;
-  --brass:#A5854A;
-  --brass-lt:#C9B384;
+  /* ─ KONKUK WAVE 2031 브랜드 문서에서 추출한 공식 색상 ─ */
+  --ku-green:#2C663F;        /* 표지 배경 · 주색 */
+  --ku-green-deep:#20492E;   /* 진한 변형 */
+  --ku-bright:#45BB3C;       /* 강조 바 (텍스트용 아님) */
+  --ku-gold:#BDA766;         /* 공식 골드 — 어두운 배경 위 */
+  --ku-gold-deep:#857038;    /* 흰 배경 위 텍스트용으로 어둡게 */
+  --ku-cream:#EAE1C9;        /* 전략과제 박스 */
+  --ku-cream-lt:#FAF7EE;
+  --ku-pale-green:#BDE7BA;
   --ink:#191C1A;
   --muted:#6A756E;
-  --line:#E4E8E4;
-  --line-soft:#F0F2F0;
+  --line:#E3E7E1;
+  --line-soft:#EFF2EE;
   --sans:'IBM Plex Sans','IBM Plex Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
   --mono:'IBM Plex Mono','IBM Plex Sans KR',ui-monospace,SFMono-Regular,Menlo,monospace;
 }
@@ -39,20 +43,24 @@ body{
 .masthead{
   position:relative;overflow:hidden;isolation:isolate;
   margin-top:30px;
-  background:linear-gradient(158deg,#164234 0%,var(--green-900) 100%);
+  background:var(--ku-green);
   color:#fff;
-  padding:50px 44px 34px;
-  border-top:3px solid var(--brass);
+  border-top:3px solid var(--ku-bright);
+}
+.mast-inner{
+  position:relative;
+  max-width:848px;margin:0 auto;
+  padding:50px 22px 34px;
 }
 .flow{
-  position:absolute;right:-52px;top:50%;transform:translateY(-50%);
-  width:340px;height:340px;color:var(--brass-lt);opacity:.17;
+  position:absolute;right:-58px;top:50%;transform:translateY(-50%);
+  width:330px;height:330px;color:var(--ku-pale-green);opacity:.2;
   z-index:-1;pointer-events:none;
 }
 .eyebrow{
   font-family:var(--mono);
   font-size:10.5px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--brass-lt);margin-bottom:17px;
+  color:var(--ku-cream);margin-bottom:17px;
 }
 .title{
   font-weight:700;
@@ -62,13 +70,13 @@ body{
 .title .l2{display:block}
 .subtitle{
   font-style:italic;font-weight:400;
-  font-size:clamp(14.5px,2.3vw,17px);color:rgba(255,255,255,.7);
+  font-size:clamp(14.5px,2.3vw,17px);color:rgba(255,255,255,.76);
   margin-top:11px;
 }
 .mast-meta{
   margin-top:26px;padding-top:15px;
-  border-top:1px solid rgba(201,179,132,.34);
-  font-size:13px;color:rgba(255,255,255,.8);
+  border-top:1px solid rgba(234,225,201,.34);
+  font-size:13px;color:rgba(255,255,255,.86);
 }
 .mast-meta b{font-weight:600;color:#fff}
 
@@ -77,10 +85,10 @@ body{
 .sem-head{display:flex;align-items:baseline;gap:15px}
 .sem-kr{
   font-weight:700;font-size:19px;letter-spacing:-.022em;
-  color:var(--green-800);white-space:nowrap;
+  color:var(--ku-green);white-space:nowrap;
 }
 .sem-rule{flex:1 1 auto;height:1px;background:var(--line);min-width:16px}
-.sem-en{font-style:italic;font-size:14.5px;color:var(--brass);white-space:nowrap}
+.sem-en{font-style:italic;font-size:14.5px;color:var(--ku-gold-deep);white-space:nowrap}
 .sem-note{
   margin-top:8px;font-family:var(--mono);font-size:11.5px;
   letter-spacing:.02em;color:var(--muted);
@@ -95,31 +103,32 @@ body{
 
 .plate{
   flex:0 0 auto;width:62px;text-align:center;
-  border:1px solid var(--line);border-top:2px solid var(--brass);
-  padding:8px 0 8px;line-height:1.1;background:#fff;
+  border:1px solid var(--line);border-top:2px solid var(--ku-bright);
+  padding:8px 0;line-height:1.1;background:#fff;
 }
 .plate .mo{
   display:block;font-family:var(--mono);
   font-size:10.5px;font-weight:500;letter-spacing:.05em;
-  color:var(--brass);text-transform:uppercase;
+  color:var(--ku-gold-deep);text-transform:uppercase;
 }
 .plate .dy{
   display:block;font-family:var(--mono);font-weight:500;
   font-size:22px;letter-spacing:-.03em;
-  color:var(--green-800);margin-top:3px;
+  color:var(--ku-green);margin-top:3px;
 }
 
 .tbody{flex:1 1 auto;min-width:0}
 .who{margin:0;font-size:16px;font-weight:600;letter-spacing:-.014em}
 .who a{
-  color:var(--green-800);text-decoration:none;
-  border-bottom:1px solid var(--brass-lt);
+  color:var(--ku-green);text-decoration:none;
+  border-bottom:1px solid var(--ku-gold);
   padding-bottom:1px;transition:border-color .18s ease,color .18s ease;
 }
-.who a:hover,.who a:focus-visible{color:var(--brass);border-bottom-color:var(--brass)}
-.who a::after{
-  content:"97";font-size:.7em;font-weight:400;
-  color:var(--brass);margin-left:3px;vertical-align:.26em;
+.who a:hover,.who a:focus-visible{color:var(--ku-gold-deep);border-bottom-color:var(--ku-gold-deep)}
+.who .ext{
+  width:.6em;height:.6em;margin-left:5px;vertical-align:.04em;
+  fill:none;stroke:var(--ku-gold-deep);stroke-width:1.5;
+  stroke-linecap:round;stroke-linejoin:round;
 }
 .aff{
   display:block;margin-top:4px;
@@ -135,20 +144,21 @@ body{
   margin-top:13px;display:inline-flex;align-items:center;gap:7px;
   background:none;border:0;padding:2px 0;cursor:pointer;
   font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:.1em;
-  color:var(--green-600);text-transform:uppercase;
+  color:var(--ku-green);text-transform:uppercase;
 }
 .toggle .chev{
-  display:inline-block;font-size:8px;line-height:1;color:var(--brass);
+  display:inline-block;font-size:8px;line-height:1;color:var(--ku-gold-deep);
   transition:transform .2s ease;
 }
 .toggle[aria-expanded="true"] .chev{transform:rotate(90deg)}
-.toggle:hover{color:var(--brass)}
-.toggle:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.toggle:hover{color:var(--ku-gold-deep)}
+.toggle:focus-visible{outline:2px solid var(--ku-green);outline-offset:3px}
 
 .abs[hidden]{display:none}
 .abs{
-  margin-top:14px;padding:2px 0 2px 19px;
-  border-left:1px solid var(--brass-lt);
+  margin-top:14px;padding:14px 18px;
+  background:var(--ku-cream-lt);
+  border-left:2px solid var(--ku-gold);
   font-size:14.5px;line-height:1.85;color:#3B413C;
 }
 .abs p{margin:0}
@@ -159,25 +169,26 @@ body{
 
 /* ─────────── Footer ─────────── */
 .foot{
-  margin-top:58px;padding-top:22px;border-top:2px solid var(--green-800);
+  margin-top:58px;padding-top:22px;border-top:2px solid var(--ku-green);
   font-size:12.5px;line-height:1.95;color:var(--muted);
 }
 .foot .row{display:flex;gap:14px;align-items:baseline}
 .foot .lbl{
   flex:0 0 96px;font-family:var(--mono);
   font-size:10px;font-weight:500;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--brass);
+  text-transform:uppercase;color:var(--ku-gold-deep);
 }
 .foot a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
-.foot a:hover{color:var(--green-800);border-bottom-color:var(--brass)}
+.foot a:hover{color:var(--ku-green);border-bottom-color:var(--ku-gold-deep)}
 
 @media (max-width:600px){
-  .masthead{padding:38px 26px 28px}
-  .flow{right:-96px;width:270px;height:270px;opacity:.13}
+  .mast-inner{padding:36px 22px 26px}
+  .flow{right:-96px;width:270px;height:270px;opacity:.16}
   .talk{gap:14px}
   .plate{width:54px}
   .plate .dy{font-size:19px}
   .what{font-size:15.5px}
+  .abs{padding:12px 15px}
   .foot .row{display:block}
   .foot .lbl{margin-bottom:1px}
 }
@@ -189,7 +200,8 @@ body{
 <body>
 
 <header class="masthead">
-  <svg class="flow" viewBox="0 0 320 320" aria-hidden="true" focusable="false">
+  <div class="mast-inner">
+    <svg class="flow" viewBox="0 0 320 320" aria-hidden="true" focusable="false">
       <g fill="none" stroke="currentColor" stroke-width="1.1">
         <ellipse cx="160" cy="160" rx="152" ry="93" transform="rotate(-20 160 160)"/>
         <ellipse cx="160" cy="160" rx="128" ry="86" transform="rotate(-16 160 160)"/>
@@ -200,10 +212,11 @@ body{
         <ellipse cx="160" cy="160" rx="17"  ry="17"/>
       </g>
     </svg>
-  <div class="eyebrow">Konkuk University &middot; Department of Mathematics</div>
-  <h1 class="title">건국대학교 <span class="l2">수리과학연구소 콜로퀴움</span></h1>
-  <div class="subtitle">Colloquium, Institute of Mathematical Sciences</div>
-  <div class="mast-meta">매 학기 <b>화요일 17:00</b>, 과학관에서 개최합니다. 강연 후 자유로운 토의를 위해 피자가 제공됩니다.</div>
+    <div class="eyebrow">Konkuk University &middot; Department of Mathematics</div>
+    <h1 class="title">건국대학교 <span class="l2">수리과학연구소 콜로퀴움</span></h1>
+    <div class="subtitle">Colloquium, Institute of Mathematical Sciences</div>
+    <div class="mast-meta">매 학기 <b>화요일 17:00</b>, 과학관에서 개최합니다. 강연 후 자유로운 토의를 위해 피자가 제공됩니다.</div>
+  </div>
 </header>
 
 <div class="wrap">
@@ -216,7 +229,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Mar.</span><span class="dy">17</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://www.uoguelph.ca/profile/monica-cojocaru" target="_blank" rel="noopener">Monica Cojocaru</a><span class="aff">University of Guelph</span></h3>
+          <h3 class="who"><a href="https://www.uoguelph.ca/profile/monica-cojocaru" target="_blank" rel="noopener">Monica Cojocaru<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">University of Guelph</span></h3>
           <p class="what">Structured Dynamics in Infectious Disease: Mobility, Behaviour, and Adaptive Forecasting</p>
           <button class="toggle" id="btn1" type="button" aria-expanded="false" aria-controls="abs1"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs1" role="region" aria-labelledby="btn1" hidden><p>Classical epidemic models treat transmission parameters as fixed and populations as well mixed. In practice, however, epidemic dynamics are shaped by population structure, behavioural decision-making, and adaptive learning. In this talk, I present a mathematical framework that integrates these components within a unified dynamical perspective.</p>
@@ -229,7 +242,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Mar.</span><span class="dy">24</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://bcs.kaist.ac.kr/korean/sub030101/view/id/197" target="_blank" rel="noopener">김대욱</a><span class="aff">카이스트 뇌인지과학과</span></h3>
+          <h3 class="who"><a href="https://bcs.kaist.ac.kr/korean/sub030101/view/id/197" target="_blank" rel="noopener">김대욱<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">카이스트 뇌인지과학과</span></h3>
           <p class="what">High-Dimensional Nonlinear State-Space Estimation for Biological Data Assimilation</p>
           <button class="toggle" id="btn2" type="button" aria-expanded="false" aria-controls="abs2"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs2" role="region" aria-labelledby="btn2" hidden><p>Biological systems often exhibit strongly nonlinear dynamics, such as slow–fast manifold oscillations, making accurate state-space estimation from noisy measurements particularly challenging. Classical state-space estimation methods, such as Kalman–Bucy and particle filters, either rely on restrictive Gaussian assumptions or become computationally prohibitive in high-dimensional settings. In this talk, I present two complementary approaches to nonlinear, high-dimensional data assimilation. First, I introduce an adaptive Gaussian mixture filter that splits and merges Gaussian particles to efficiently capture asymmetric and highly nonlinear state distributions. Second, I present a score-based filter that integrates score-based generative modeling with a forward process derived from the measurement equation, enabling analytically tractable likelihood updates and improved stability in high dimensions. Together, these methods provide scalable and accurate frameworks for state estimation in complex biological dynamical systems.</p></div>
@@ -238,7 +251,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Mar.</span><span class="dy">31</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://sites.google.com/site/shkim0401/" target="_blank" rel="noopener">김승혁</a><span class="aff">한양대학교 수학과</span></h3>
+          <h3 class="who"><a href="https://sites.google.com/site/shkim0401/" target="_blank" rel="noopener">김승혁<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">한양대학교 수학과</span></h3>
           <p class="what">공형기하학의 아름다움 (The beauty of conformal geometry)</p>
           <button class="toggle" id="btn3" type="button" aria-expanded="false" aria-controls="abs3"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs3" role="region" aria-labelledby="btn3" hidden><p>이번 강연에서는 미분기하학의 한 분야인 공형기하학의 세계를 탐구합니다. 특히 2차원의 공형기하를 탐구하는 복소해석학과 리만곡면론에 초점을 맞추어 설명할 예정입니다. (시간이 허락하면 3차원 이상 공형기하학의 주요 주제 중 하나인 야마베 문제에 대해서 잠깐 짚어볼 수도 있습니다.)</p>
@@ -266,7 +279,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Jun.</span><span class="dy">2</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://sites.google.com/view/hnammath" target="_blank" rel="noopener">남하얀</a><span class="aff">건국대학교 수학과</span></h3>
+          <h3 class="who"><a href="https://sites.google.com/view/hnammath" target="_blank" rel="noopener">남하얀<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">건국대학교 수학과</span></h3>
           <p class="what">Partition과 Numerical semigroup 소개</p>
           <button class="toggle" id="btn6" type="button" aria-expanded="false" aria-controls="abs6"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs6" role="region" aria-labelledby="btn6" hidden><p>정수들을 이용하여 정의할 수 있는 두 수학적 개념인 partition과 numerical semigroup에 관해 알려진 정리들을 소개한다. 또한 partition과 numerical semigroup간의 연결성에 대해 알아보고 이와 관련된 결과들을 설명한다.</p></div>
@@ -297,7 +310,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Sep.</span><span class="dy">30</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://jcpaik.github.io/" target="_blank" rel="noopener">백진언 박사</a><span class="aff">고등과학원 허준이난제연구소</span></h3>
+          <h3 class="who"><a href="https://jcpaik.github.io/" target="_blank" rel="noopener">백진언 박사<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">고등과학원 허준이난제연구소</span></h3>
           <p class="what">7년 동안 소파를 옮긴 방법 (How to move a sofa around for 7 years)</p>
           <button class="toggle" id="btn8" type="button" aria-expanded="false" aria-controls="abs8"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs8" role="region" aria-labelledby="btn8" hidden><p>어려운 수학 문제가 풀리는 데엔 그만한 사연이 있다. 그 예시 중 하나로 소파 옮기기 문제가 어떻게 풀리게 됐는지를 발표자의 개인적 여정을 통해 알아본다.</p></div>
@@ -306,7 +319,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Nov.</span><span class="dy">18</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://sites.google.com/site/dhkwonmath/" target="_blank" rel="noopener">권도현</a><span class="aff">서울시립대학교 수학과</span></h3>
+          <h3 class="who"><a href="https://sites.google.com/site/dhkwonmath/" target="_blank" rel="noopener">권도현<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">서울시립대학교 수학과</span></h3>
           <p class="what">Generative Modeling Through the Lens of Optimal Transport</p>
           <button class="toggle" id="btn9" type="button" aria-expanded="false" aria-controls="abs9"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs9" role="region" aria-labelledby="btn9" hidden><p>Generative models have achieved remarkable success across a wide range of machine learning tasks. This talk presents a unified perspective on generative modeling through the lens of optimal transport, viewing learning as an optimization problem over the space of probability measures. We will explore how this framework inspires connections between diffusion models, energy-based models, and GANs. Along the way, we will highlight recent advances and discuss how these ideas extend new directions for advancing generative models.</p></div>
@@ -315,7 +328,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Nov.</span><span class="dy">25</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://hwijaeson.github.io/" target="_blank" rel="noopener">손휘재</a><span class="aff">건국대학교 수학과</span></h3>
+          <h3 class="who"><a href="https://hwijaeson.github.io/" target="_blank" rel="noopener">손휘재<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">건국대학교 수학과</span></h3>
           <p class="what">AI for Mathematics &amp; Mathematics for AI</p>
           <button class="toggle" id="btn10" type="button" aria-expanded="false" aria-controls="abs10"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs10" role="region" aria-labelledby="btn10" hidden><p>Artificial intelligence and mathematics have long been closely connected, each inspiring progress in the other. Mathematics offers the language and principles that guide the design of AI, while AI provides new tools and fresh perspectives to approach challenging mathematical problems. This talk reflects on the two-way relationship between AI and mathematics (AI for Mathematics &amp; Mathematics for AI), showing how the two fields can enrich one another and open up exciting opportunities for research and innovation.</p></div>
@@ -331,7 +344,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Apr.</span><span class="dy">3</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://sites.google.com/site/sjlee242/" target="_blank" rel="noopener">이상준</a><span class="aff">경희대학교 수학과</span></h3>
+          <h3 class="who"><a href="https://sites.google.com/site/sjlee242/" target="_blank" rel="noopener">이상준<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">경희대학교 수학과</span></h3>
           <p class="what">Introduction to random graphs and properties of random intersection graphs related to MERS</p>
           <button class="toggle" id="btn11" type="button" aria-expanded="false" aria-controls="abs11"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs11" role="region" aria-labelledby="btn11" hidden><p>Random graph는 graph들의 모임을 확률적인 공간으로 생각하는 것으로서 1959년에 Erdős–Rényi에 의해 정의되었고, 현재는 조합론의 기초연구와 실생활로부터 정의되는 그래프 모델링 등 다양한 분야에 이용되고 있다.</p>
@@ -342,7 +355,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Apr.</span><span class="dy">10</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://www.math.snu.ac.kr/~kiahm/" target="_blank" rel="noopener">이기암</a><span class="aff">서울대학교 수리과학부</span></h3>
+          <h3 class="who"><a href="https://www.math.snu.ac.kr/~kiahm/" target="_blank" rel="noopener">이기암<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">서울대학교 수리과학부</span></h3>
           <p class="what">비선형 편미분 방정식과 응용</p>
           <button class="toggle" id="btn12" type="button" aria-expanded="false" aria-controls="abs12"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs12" role="region" aria-labelledby="btn12" hidden><p>본 강연에서 물리·사회 현상에서 비선형 편미분방정식을 도출하고 해의 정칙성과 근사성에 대하여 논의한다. 특히 금융수학과 미분기하학에서의 응용문제들과 연관성에 대하여 발표하고자 한다.</p></div>
@@ -351,7 +364,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">May</span><span class="dy">1</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://sites.google.com/view/scko" target="_blank" rel="noopener">고승찬</a><span class="aff">인하대학교 수학과</span></h3>
+          <h3 class="who"><a href="https://sites.google.com/view/scko" target="_blank" rel="noopener">고승찬<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">인하대학교 수학과</span></h3>
           <p class="what">Mathematical Theory of Neural Network Approximation and its Applications to Scientific Machine Learning</p>
           <button class="toggle" id="btn13" type="button" aria-expanded="false" aria-controls="abs13"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs13" role="region" aria-labelledby="btn13" hidden><p>In recent years, modern machine learning techniques using deep neural networks have achieved tremendous success in various fields. From a mathematical point of view, deep learning essentially involves approximating a target function, relying on the approximation power of deep neural networks. Therefore, it is important to understand the approximation and generalization properties of neural networks in high dimensions. The primary objective of this talk is to mathematically analyze the approximation of neural networks within the classical numerical analysis framework. We will explore the proper regularity of target functions which is suitable for the neural network approximation, and investigate how these properties are reflected in the approximation and learning complexity of neural networks. Next, I will apply these theories to my recent work on the operator learning method for solving parametric PDEs. I will analyze the intrinsic structure of the proposed method through the theory described above, deriving some useful results both theoretically and practically. Furthermore, I will demonstrate some relevant numerical experiments, confirming that these theory-guided strategies can be utilized to significantly improve the performance of the method.</p></div>
@@ -360,7 +373,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">May</span><span class="dy">8</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="http://home.sejong.ac.kr/~hojunyou/" target="_blank" rel="noopener">유호준</a><span class="aff">세종대학교 우주항공시스템공학부</span></h3>
+          <h3 class="who"><a href="http://home.sejong.ac.kr/~hojunyou/" target="_blank" rel="noopener">유호준<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">세종대학교 우주항공시스템공학부</span></h3>
           <p class="what">Introduction to Higher-order Methods: A Powerful Tool for High-fidelity Multi-physical Flow Simulations</p>
           <button class="toggle" id="btn14" type="button" aria-expanded="false" aria-controls="abs14"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs14" role="region" aria-labelledby="btn14" hidden><p>Computational fluid dynamics (CFD) has been rapidly developed with the evolution of high-performance computing devices, such as many-core CPUs and hardware accelerators. At the same time, more complicated flow simulations are demanded for real-life applications, e.g., hypersonic reentry vehicles, magneto-hydrodynamic drive, and urban air mobility. These applications commonly contain massive flow separation, complex shock-vortex interaction, and laminar-to-turbulence transition where second-order finite volume methods (FVMs) are fundamentally limited. In this talk, the speaker introduces high-order methods (HOMs) as promising candidates to overcome the limitations of FVMs. Despite its bright outlook, however, there are still obstacles to be addressed for HOMs to reach industrial levels of applications. The speaker presents four critical challenges:</p>
@@ -376,7 +389,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">May</span><span class="dy">29</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://sites.google.com/view/choiks" target="_blank" rel="noopener">최경수</a><span class="aff">고등과학원 수학부</span></h3>
+          <h3 class="who"><a href="https://sites.google.com/view/choiks" target="_blank" rel="noopener">최경수<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">고등과학원 수학부</span></h3>
           <p class="what">곡면의 에너지와 평형</p>
           <button class="toggle" id="btn15" type="button" aria-expanded="false" aria-controls="abs15"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs15" role="region" aria-labelledby="btn15" hidden><p>비눗방울은 둥글다. 비눗면에 작용하는 장력과 압력 등의 평형 상태를 이루기 위해, 특정한 타원형 미분방정식을 만족하는 곡면이기 때문이다. 이는 타원형 범함수의 오일러–라그랑주 방정식으로 이해할 수 있고, 안정된 비눗방울은 그 범함수의 임계점이다. 한편, 타원형 범함수는 자연스러운 기울기 흐름을 가지며, 이는 곧 포물형 미분방정식이 된다. 포물형 미분방정식의 일종인 열방정식과 마찬가지로 극한에서 평형 상태를 이루며 특정한 모양을 취한다.</p>
@@ -386,7 +399,7 @@ body{
       <article class="talk">
         <div class="plate"><span class="mo">Jun.</span><span class="dy">5</span></div>
         <div class="tbody">
-          <h3 class="who"><a href="https://sites.google.com/view/cwheo" target="_blank" rel="noopener">허철원</a><span class="aff">SUNY Korea 응용수학통계학과</span></h3>
+          <h3 class="who"><a href="https://sites.google.com/view/cwheo" target="_blank" rel="noopener">허철원<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">SUNY Korea 응용수학통계학과</span></h3>
           <p class="what">Signed Graph Theory: Extensions and Applications</p>
           <button class="toggle" id="btn16" type="button" aria-expanded="false" aria-controls="abs16"><span class="chev">&#9654;</span><span class="txt">초록</span></button>
           <div class="abs" id="abs16" role="region" aria-labelledby="btn16" hidden><p>In this talk, we will explore various approaches to extending fundamental concepts and theorems of graph theory to signed graphs, focusing particularly on the connections with spectral graph theory and matroid theory. We will discuss the unique properties and key concepts of signed graphs, examining how familiar results in graph theory reveal new insights when applied to signed graphs. Through this exploration, we aim to highlight the potential applications and expanded perspectives that signed graph theory offers.</p></div>
