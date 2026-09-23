@@ -7,48 +7,52 @@
 <meta name="description" content="건국대학교 수리과학연구소 콜로퀴움 — 강연 일정과 초록">
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
 <style>
-:root{--green:#2C663F;--green2:#1F4B2E;--ink:#1A1D1B;--body:#3A403B;--mute:#7A827C;--rule:#2C663F;--paper:#fff;
+:root{--green:#2C663F;--ink:#1A1D1B;--body:#3A403B;--mute:#7A827C;--rule:#2C663F;--line:#E4E8E4;
       --font:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo','Noto Sans KR',sans-serif}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
-body{margin:0;background:#F2F4F1;color:var(--body);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
+body{margin:0;background:#fff;color:var(--body);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.sheet{max-width:880px;margin:36px auto 60px;background:var(--paper);box-shadow:0 1px 0 rgba(0,0,0,.04),0 20px 50px -30px rgba(20,40,28,.35)}
-.band{background:var(--green);color:#fff;padding:52px 56px 44px;text-align:center}
-.band h1{margin:0;font-size:clamp(28px,4.8vw,44px);font-weight:900;letter-spacing:-.03em;line-height:1.2}
+.col{max-width:900px;margin:0 auto;padding:0 28px}
+/* 상단 띠: 화면 전체 폭, 글은 본문과 같은 단에 왼쪽 정렬 */
+.band{background:var(--green);color:#fff}
+.band .col{padding-top:60px;padding-bottom:48px}
+.band h1{margin:0;font-size:clamp(28px,4.4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.22}
 .band h1 span{display:block}
-.band .info{margin:18px 0 0;font-size:clamp(17px,2.6vw,24px);font-weight:700;letter-spacing:-.01em}
-.band .pizza{margin:10px 0 0;font-size:14px;color:rgba(255,255,255,.86)}
-.band+.list{margin-top:0}
-.band.past{padding:30px 56px 26px}
-.list+.band{margin-top:64px}
-.list{padding:0 56px}
-.talk{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:26px 0 24px;border-bottom:3px solid var(--rule);align-items:start}
+.band .info{margin:18px 0 0;font-size:clamp(16px,2.2vw,20px);font-weight:600}
+.band .pizza{margin:8px 0 0;font-size:14px;color:rgba(255,255,255,.82)}
+/* 지난 학기: 블록이 아니라 섹션 제목 */
+.past{margin-top:84px}
+.past h2{margin:0;padding-bottom:12px;border-bottom:3px solid var(--rule);font-size:26px;font-weight:800;letter-spacing:-.025em;color:var(--green)}
+.past .room{margin:8px 0 0;font-size:13.5px;color:var(--mute)}
+.list{margin-top:8px}
+.talk{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:26px 0 24px;border-bottom:2px solid var(--rule);align-items:start}
 .talk .date{font-size:30px;font-weight:800;color:var(--green);letter-spacing:-.03em;line-height:1;padding-top:4px}
 .talk .date small{display:block;font-size:12px;font-weight:600;color:var(--mute);letter-spacing:0;margin-top:6px}
-.talk .name{font-size:22px;font-weight:700;color:var(--green);text-decoration:none;letter-spacing:-.02em}
+.talk .name{font-size:21px;font-weight:700;color:var(--green);text-decoration:none;letter-spacing:-.02em}
 .talk a.name:hover{text-decoration:underline;text-underline-offset:4px}
 .talk .aff{margin-left:12px;font-size:14px;color:var(--body);font-weight:500}
-.talk .title{margin:8px 0 0;font-size:17px;font-weight:600;color:var(--ink);line-height:1.45;letter-spacing:-.01em}
+.talk .title{margin:8px 0 0;font-size:17px;font-weight:600;color:var(--ink);line-height:1.45;letter-spacing:-.01em;max-width:44em}
 .ext{width:.5em;height:.5em;margin-left:4px;fill:none;stroke:var(--green);stroke-width:1.6;stroke-linecap:round;vertical-align:.1em}
 .toggle{margin-top:12px;background:none;border:1.5px solid var(--green);color:var(--green);border-radius:4px;padding:4px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
 .toggle[aria-expanded="true"]{background:var(--green);color:#fff}
 .toggle:focus-visible{outline:2px solid var(--green);outline-offset:3px}
-.abs{margin-top:14px;font-size:15px;line-height:1.8;color:var(--body)}
+.abs{margin-top:14px;font-size:15px;line-height:1.8;color:var(--body);max-width:44em}
 .abs p{margin:0}.abs p+p{margin-top:10px}.abs ul,.abs ol{margin:6px 0 0;padding-left:20px}.abs .note{margin-top:10px;color:var(--mute);font-size:14px}
 .tba{margin:12px 0 0;font-size:14px;color:var(--mute)}
 .talk .rowtag{display:none}
 .talk.upcoming .rowtag{display:inline-block;border:1.5px solid var(--green);color:var(--green);font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;margin-left:12px;vertical-align:middle;white-space:nowrap}
 .talk.next .rowtag{background:var(--green);color:#fff}
-.foot{padding:36px 56px 44px;font-size:13.5px;line-height:1.9;color:var(--body)}
+.foot{margin-top:80px;padding:28px 0 56px;border-top:1px solid var(--line);font-size:13.5px;line-height:1.9;color:var(--body)}
 .foot p{margin:0}.foot .k{display:inline-block;min-width:110px;color:var(--mute)}
-@media(max-width:640px){.sheet{margin:0}.band{padding-left:24px;padding-right:24px}.list{padding:0 24px}.foot{padding:28px 24px 36px}
- .talk{grid-template-columns:1fr;gap:8px}.talk .date small{display:inline;margin-left:8px}.talk .aff{display:block;margin:2px 0 0}.foot .k{display:block;min-width:0}}
+@media(max-width:640px){.col{padding:0 20px}.band .col{padding-top:44px;padding-bottom:36px}.past{margin-top:64px}.past h2{font-size:22px}
+ .talk{grid-template-columns:1fr;gap:8px;padding:22px 0 20px}.talk .date small{display:inline;margin-left:8px}.talk .aff{display:block;margin:2px 0 0}
+ .talk .rowtag{margin:6px 0 0;display:block;width:max-content}.foot .k{display:block;min-width:0}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="sheet">
-<header class="band"><h1><span>2026년 2학기 건국대학교</span><span>수리과학연구소 콜로퀴움</span></h1><p class="info">17:00 과학관 201호</p><p class="pizza">강연이 끝난 후 자유로운 토의를 위해 피자가 제공됩니다</p></header>
+<header class="band"><div class="col"><h1><span>2026년 2학기 건국대학교</span><span>수리과학연구소 콜로퀴움</span></h1><p class="info">17:00 과학관 201호</p><p class="pizza">강연이 끝난 후 자유로운 토의를 위해 피자가 제공됩니다</p></div></header>
+<main class="col">
 <section class="list">
 <article class="talk upcoming next" data-date="2026-10-06"><div class="date">10/6<small>화요일</small></div><div><a class="name" href="https://www.maths.usyd.edu.au/u/pkim/" target="_blank" rel="noopener">Peter Kim<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">University of Sydney</span><span class="rowtag">다음 강연 D-12</span><p class="title">Voronoi cell-based model of the corneal epithelium: Dynamical model of self-renewal and wound healing</p><button class="toggle" type="button" id="b1" aria-expanded="false" aria-controls="a1">초록 보기</button><div class="abs" id="a1" role="region" aria-labelledby="b1" hidden><p>The corneal epithelium is a transparent, self-renewing tissue on the outer surface of the eye, which is maintained with remarkable precision. It is a stratified epithelium consisting of several layers, each only one cell thick. Maintaining this structure is essential for high-quality vision.</p>
 <p>Its regeneration is driven by limbal epithelial stem cells (LESCs), which reside on a ring around the bottom layer of the corneal epithelium. LESCs proliferate and produce transit amplifying cells (TACs) that migrate centripetally toward the centre. TACs continually replenish the tissue and, together with vertical migration, called delamination, between layers, they sustain the entire epithelium. Despite this highly coordinated renewal process, the mechanical mechanisms regulating epithelial stratification remain poorly understood.</p>
@@ -57,7 +61,7 @@ a{color:inherit}
 <article class="talk upcoming" data-date="2026-11-03"><div class="date">11/3<small>화요일</small></div><div><a class="name" href="https://kias.re.kr/kias/schools/mathmaticsPeople/viewMember.do?memberId=10736&amp;menuNo=402005&amp;pageIndex=&amp;trget=listFaculty" target="_blank" rel="noopener">김상현<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">고등과학원 수학부</span><span class="rowtag">D-40</span><p class="title">생각을 생각하다 – 인간, 수학, AI</p><p class="tba">초록은 추후 공지됩니다.</p></div></article>
 <article class="talk upcoming" data-date="2026-12-01"><div class="date">12/1<small>화요일</small></div><div><a class="name" href="https://taehun-math.github.io/" target="_blank" rel="noopener">이태훈<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">건국대학교 수학과</span><span class="rowtag">D-68</span><p class="title">백년간의 난제 푸앵카레 추측은 어떻게 해결되었나?</p><button class="toggle" type="button" id="b4" aria-expanded="false" aria-controls="a4">초록 보기</button><div class="abs" id="a4" role="region" aria-labelledby="b4" hidden><p>푸앵카레 추측은 단일연결 닫힌 3차원 다양체가 3차원 구면과 위상동형임을 주장하는 명제로, 1904년 제기된 이래 약 한 세기 동안 미해결로 남아 있던 위상수학의 대표적 난제이다. 본 강연에서는 이 문제가 곡률 진화 방정식이라는 해석적 도구를 통해 어떻게 해결되었는지를 살펴본다. Hamilton이 도입한 리치 흐름(Ricci flow, 공간의 곡률을 열방정식처럼 확산시켜 기하 구조를 균일화하는 흐름)을 소개하고, Perelman이 엔트로피 단조성과 수술(surgery) 기법으로 특이점 형성의 난관을 극복한 과정을 간략히 짚는다. 나아가, "흐름으로 기하·위상 문제를 푼다"는 전략이 리치 흐름에만 국한되지 않음을 논의하고, 평균곡률흐름을 비롯한 다양한 비선형 곡률 흐름에서의 장애물 문제, 특이점 해석 등 강연자의 최근 연구들을 함께 소개한다.</p></div></div></article>
 </section>
-<header class="band past"><h1>2026년 1학기</h1></header>
+<section class="past"><h2>2026년 1학기</h2><p class="room">과학관 201호</p></section>
 <section class="list">
 <article class="talk" data-date="2026-03-17"><div class="date">3/17<small>화요일</small></div><div><a class="name" href="https://www.uoguelph.ca/profile/monica-cojocaru" target="_blank" rel="noopener">Monica Cojocaru<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">University of Guelph</span><span class="rowtag"></span><p class="title">Structured Dynamics in Infectious Disease: Mobility, Behaviour, and Adaptive Forecasting</p><button class="toggle" type="button" id="b5" aria-expanded="false" aria-controls="a5">초록 보기</button><div class="abs" id="a5" role="region" aria-labelledby="b5" hidden><p>Classical epidemic models treat transmission parameters as fixed and populations as well mixed. In practice, however, epidemic dynamics are shaped by population structure, behavioural decision-making, and adaptive learning. In this talk, I present a mathematical framework that integrates these components within a unified dynamical perspective.</p>
 <p>We begin with a structured SEIRL model and revisit the basic reproduction number as the spectral radius of a next-generation operator. Estimating early exponential growth from incidence data allows us to connect observed growth rates to transmission parameters and highlight the sensitivity of epidemic dynamics to structural heterogeneity.</p>
@@ -71,7 +75,7 @@ a{color:inherit}
 <article class="talk" data-date="2026-05-19"><div class="date">5/19<small>화요일</small></div><div><span class="name">손재범</span><span class="aff">연세대학교 수학과</span><span class="rowtag"></span><p class="title">Core Partitions, Numerical Semigroups, and Related Problems</p><button class="toggle" type="button" id="b9" aria-expanded="false" aria-controls="a9">초록 보기</button><div class="abs" id="a9" role="region" aria-labelledby="b9" hidden><p>In this talk, we introduce the concept of t-core partitions. We discuss the generating function and modularity, along with some results and applications of t-core partitions. Recent results on simultaneous core partitions will also be presented. Toward the end of the talk, we introduce numerical semigroups and explore connections between numerical semigroups (or numerical sets) and partitions. Additionally, we present some open problems related to these topics.</p></div></div></article>
 <article class="talk" data-date="2026-06-02"><div class="date">6/2<small>화요일</small></div><div><a class="name" href="https://sites.google.com/view/hnammath" target="_blank" rel="noopener">남하얀<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">건국대학교 수학과</span><span class="rowtag"></span><p class="title">Partition과 Numerical semigroup 소개</p><button class="toggle" type="button" id="b10" aria-expanded="false" aria-controls="a10">초록 보기</button><div class="abs" id="a10" role="region" aria-labelledby="b10" hidden><p>정수들을 이용하여 정의할 수 있는 두 수학적 개념인 partition과 numerical semigroup에 관해 알려진 정리들을 소개한다. 또한 partition과 numerical semigroup간의 연결성에 대해 알아보고 이와 관련된 결과들을 설명한다.</p></div></div></article>
 </section>
-<header class="band past"><h1>2025년 2학기</h1></header>
+<section class="past"><h2>2025년 2학기</h2><p class="room">과학관 201호</p></section>
 <section class="list">
 <article class="talk" data-date="2025-09-09"><div class="date">9/9<small>화요일</small></div><div><span class="name">김일희 박사</span><span class="aff">디셈버앤컴퍼니 (fint)</span><span class="rowtag"></span><p class="title">수학과 졸업하고 뭐하면 좋을까?</p><button class="toggle" type="button" id="b11" aria-expanded="false" aria-controls="a11">초록 보기</button><div class="abs" id="a11" role="region" aria-labelledby="b11" hidden><ul>
 <li>학계와 업계의 차이. 연구와 공부의 차이.</li>
@@ -84,7 +88,7 @@ a{color:inherit}
 <article class="talk" data-date="2025-11-18"><div class="date">11/18<small>화요일</small></div><div><a class="name" href="https://sites.google.com/site/dhkwonmath/" target="_blank" rel="noopener">권도현<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">서울시립대학교 수학과</span><span class="rowtag"></span><p class="title">Generative Modeling Through the Lens of Optimal Transport</p><button class="toggle" type="button" id="b13" aria-expanded="false" aria-controls="a13">초록 보기</button><div class="abs" id="a13" role="region" aria-labelledby="b13" hidden><p>Generative models have achieved remarkable success across a wide range of machine learning tasks. This talk presents a unified perspective on generative modeling through the lens of optimal transport, viewing learning as an optimization problem over the space of probability measures. We will explore how this framework inspires connections between diffusion models, energy-based models, and GANs. Along the way, we will highlight recent advances and discuss how these ideas extend new directions for advancing generative models.</p></div></div></article>
 <article class="talk" data-date="2025-11-25"><div class="date">11/25<small>화요일</small></div><div><a class="name" href="https://hwijaeson.github.io/" target="_blank" rel="noopener">손휘재<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">건국대학교 수학과</span><span class="rowtag"></span><p class="title">AI for Mathematics &amp; Mathematics for AI</p><button class="toggle" type="button" id="b14" aria-expanded="false" aria-controls="a14">초록 보기</button><div class="abs" id="a14" role="region" aria-labelledby="b14" hidden><p>Artificial intelligence and mathematics have long been closely connected, each inspiring progress in the other. Mathematics offers the language and principles that guide the design of AI, while AI provides new tools and fresh perspectives to approach challenging mathematical problems. This talk reflects on the two-way relationship between AI and mathematics (AI for Mathematics &amp; Mathematics for AI), showing how the two fields can enrich one another and open up exciting opportunities for research and innovation.</p></div></div></article>
 </section>
-<header class="band past"><h1>2025년 1학기</h1></header>
+<section class="past"><h2>2025년 1학기</h2><p class="room">과학관 312-1호</p></section>
 <section class="list">
 <article class="talk" data-date="2025-04-03"><div class="date">4/3<small>목요일</small></div><div><a class="name" href="https://sites.google.com/site/sjlee242/" target="_blank" rel="noopener">이상준<svg class="ext" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M2.7 7.3 7.3 2.7M3.7 2.7h3.6v3.6"/></svg></a><span class="aff">경희대학교 수학과</span><span class="rowtag"></span><p class="title">Introduction to random graphs and properties of random intersection graphs related to MERS</p><button class="toggle" type="button" id="b15" aria-expanded="false" aria-controls="a15">초록 보기</button><div class="abs" id="a15" role="region" aria-labelledby="b15" hidden><p>Random graph는 graph들의 모임을 확률적인 공간으로 생각하는 것으로서 1959년에 Erdős–Rényi에 의해 정의되었고, 현재는 조합론의 기초연구와 실생활로부터 정의되는 그래프 모델링 등 다양한 분야에 이용되고 있다.</p>
 <p>본 강연에서는 먼저 random graph를 쉽게 정의한 후, 두 가지 결과를 소개하고자 한다. 첫째로는 random graph가 주어진 그래프들을 포함하는 문제인 containment problem과 universality의 개념을 설명하고 새로운 결과를 설명한다. 둘째로는 메르스의 확산 모델인 random intersection graph를 소개하고 그 모델을 random graph와 비교한 새로운 결과를 소개한다.</p>
@@ -110,7 +114,7 @@ a{color:inherit}
   <p><span class="k">후원</span>건국대학교 수학과, 수리과학연구소</p>
 </footer>
 
-</div>
+</main>
 <script>
 (function(){
   // 초록 열고 닫기
